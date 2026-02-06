@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Viamus.Sonarqube.Mcp.Server/Viamus.Sonarqube.Mcp.Server.csproj" />
+  <Project Path="tests/Viamus.Sonarqube.Mcp.Server.Tests/Viamus.Sonarqube.Mcp.Server.Tests.csproj" />
+</Solution>
